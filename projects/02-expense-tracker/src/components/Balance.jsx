@@ -1,7 +1,7 @@
-import { useGlobalContext } from "../context/GlobalState";
+import { useGlobalState } from "../context/GlobalState";
 
 function Balance() {
-  const data = useGlobalContext();
+  const data = useGlobalState();
 
   return (
     <div>
