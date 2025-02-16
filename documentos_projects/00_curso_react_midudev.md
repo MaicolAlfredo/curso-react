@@ -197,6 +197,8 @@ button.addEventListener("click", function () {
 
 tenemos que cambiar también la UI como hemos visto react nos funciona para trabajar y construir interfaces de usuario y justamente la interfaces usuario normalmente son interactivas tienen que responder a lo que hacen.
 
+Si el botón incluye la clase "liked" en su lista de clases (que se comprueba con `if (button.classList.contains("liked"))`), entonces procederemos a eliminar esa clase con `button.classList.remove("liked");`. Además, modificaremos el texto interno del botón, estableciéndolo en "Me gusta" a través de `button.innerText = "Me gusta";`.En el 'else' o caso contrario, el comportamiento sería el inverso: agregando 'liked' mediante `button.classList.add("liked");` y modificando el texto interno a 'Quitar me gusta' con `button.innerText = "Quitar me gusta";`.
+
 ```js
 button.addEventListener("click", function () {
   //recuperar la id del atributo del HTML
