@@ -256,8 +256,9 @@ Creamos un Twitter para Devs
 [Indice](#curso-de-react-de-midudev)
 
 ## 7.Cómo usar React sin dependencias 26:38
-
-la realidad es que react es una biblioteca y como tal podemos utilizarla puramente con JavaScript
+Ahora bien ¿Cómo utilizariamos React para intentar hacer el mismo ejemplo de los botones? 
+Vamos utilizar React y haremos el mismo ejemplo desde cero y veremos como nos podria ayudar.
+Lo primero que tenemos que hacer es importar la dependencia de ReactDOM. Mucha gente cree que necesita utilizar Webpack, de vite que veremos mas adelante cómo podemos utilizar empaquetadores de aplicaciones para que nos ayude. Pero la realidad es que React es una biblioteca que como tal podemos utilizarla puramente con JavaScript.
 
 ```js
 import ReactDOM from "https://esm.sh/react-dom@18.2.0/client";
@@ -265,11 +266,12 @@ import ReactDOM from "https://esm.sh/react-dom@18.2.0/client";
 
 Ahora que tenemos la parte del ReactDOM tendriamos que tener un sitio donde queremos renderizar nuestra aplicación
 
+`HTML`
 ```html
 <div id="app"></div>
 ```
 
-Con el reactDOM lo que podemos recuperar es este elemento del DOM `<div id="app"></div>`
+Con el reactDOM lo que podemos recuperar es este elemento del DOM `<div id="app"></div>` guardado en una variable.
 
 ```js
 import ReactDOM from "https://esm.sh/react-dom@18.2.0/client";
@@ -279,7 +281,7 @@ const appDomElement = document.getElementById("app");
 
 Ahora queremos crear una aplicación de react para que se renderice aqui `<div id="app"></div>`. ¿Porqué explico esto? por 2 cosas: 1. por que podrías utilizar react para inyectarlo en un componentes en cualquier página web Y lo segundo es que vas a poder empezar a aprender aprender react sin instalar absolutamente nada.
 
-Entonces ¿cómo creamos nuestra aplicación de react? lo primero es crear un root `const root=`. al final en react lo que vamos a generar es un arbol de elementos, un arbol que ira creando nuestra UI a nivel de componentes y cada componente va a tener dentro un componente por que en react todo es un componente. Pero cómo tenemos que iniciar pues tenemos que iniciar desde una raiz, como desde la base asi que tenemos que crear un tronco y el tronco lo vamos a crear con ReactDOM `const root = ReactDOM`.
+Entonces ¿cómo creamos nuestra aplicación de react? lo primero es crear un root `const root=`. al final en react lo que vamos a generar es un arbol de elementos, un arbol que ira creando nuestra UI a nivel de componentes y cada componente va a tener dentro un componente por que en react todo es un componente. Pero cómo tenemos que iniciar pues tenemos que iniciar desde una raiz, como desde la base asi que tenemos que crear un tronco y el tronco lo vamos a crear con ReactDOM `const root = ReactDOM` y creamos el root `createRoot()` y le tenemos que declarar en donde lo va a crear, lo vamos a crear en el elemento de DOM que tenemos aqui`<div id="app"></div>` guardada en la variable `appDomElement`
 
 ```js
 import ReactDOM from "https://esm.sh/react-dom@18.2.0/client";
@@ -337,9 +339,11 @@ Lo que intenta en renderizar en realidad es `<button>Me gusta</button>` el texto
 
 ## 8.Crea tu primer elemento 30:00
 
-Para poder renderizar el HTML resultante lo que necesita es crear un elemento. Vamos importa React.Ahora para react vamos a crear un elemento`const button = React.createElement("button", null, "Me gusta");`. El elemento que queremos crear es un button, el 2º parametro sería los atributos o propiedades que debería tener nuestro boton por ahora será null y el 3º lo que quiera escribir.
+Para poder renderizar el HTML resultante lo que necesita es crear un elemento. Vamos importa React. Ahora para react vamos a crear un elemento lo guardamos en una variable 'button' declaramos en la variable 'React.createElement' el elemento que queremos crear es un 'button', el segundo parametro seria los atributos o propiedades que deberia tener nuestro button por ahora será 'null' y como tercer parametro el texto 'Me gusta'`const button = React.createElement("button", null, "Me gusta");`.
 Ahora que tenemoes este elemento `const button...`
 en el `root.render` ya podemos poner el button `root.render(button)`. Ahora si estamos renderizando nuestro primer elemento.
+
+Lo que hace React es Renderizar elementos, nunca podras pasarle una cadena de texto HTML directamente a React siempre tendra que crear elemento. Todo esto lo esta haciendo por un tema de seguridad por que asi la gente te pueda inyectar el codigo. 
 
 ```js
 import React from "https://esm.sh/react@18.2.0";
