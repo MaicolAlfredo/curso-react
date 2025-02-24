@@ -366,7 +366,7 @@ En el ejemplo anterior con javascript creamos un data-id `<button data-id="123">
 const button = React.createElement("button", { "data-id": 123 }, "Me gusta");
 ```
 
-Antes lo que hemos hecho era mostrar 3 botones.
+Antes lo que hemos hecho era mostrar 3 botones. Creamos dos variables de nombre button declarandolo de manera secuencial `button2,button3`.
 
 ```js
 import React from "https://esm.sh/react@18.2.0";
@@ -385,7 +385,7 @@ root.render(button);
 Necesitamos renderizar los 3 ¿cómo hacemos esto?`root.render(button, button2, button3);`, esto no funciona. Es importante que entiendas cual es el javascript para crear react, para crear nuestro elementos.
 ¿qué pasa ahora? No podemos renderizar mas de un elemento a la vez, siempre, siempre tenemos que renderizar un elemento.
 
-Imagina que tienes un metodo en javascript o una función. Pero si a "suma()" le pasa "2,3,5" el 5 no lo sumará automaticamente. Lo mismo puede pasar en el tema de react, lo que siempre va hacer es renderizar un elemento.
+Imagina que tienes un metodo en javascript o una función que recibe como parametros dos valores y que devuelve la suma de los dos valores. Pero si a "suma()" le pasa "2,3,5" el 5 no lo sumará automaticamente. Lo mismo puede pasar en el tema de react, lo que siempre va hacer es renderizar un elemento.
 
 ```js
 const suma = (a, b) => a + b;
@@ -393,7 +393,7 @@ suma(2, 3, 5);
 ```
 
 Ahora ¿omo puedes arreglar esto? lo puedes arreglar envolviendo el elemento, puedes hacer un elemento que envuelva todo los botones.
-Lo mas facil en este caso sería tener un div `const div = React.createElement("div", null, ¿que es lo que deberia haber aqui?);`.Si el 3º parametro es lo que envuelve pues lo que vamos a tener aqui deberia ser un array `[button, button2, button3]`y el div es el que vamos a renderizar `root.render(div);`.
+Lo mas facil en este caso sería tener un div `const div = React.createElement("div", null, ¿que es lo que deberia haber aqui?);`.Si el 3º parametro es lo que envuelve pues lo que vamos a tener aqui deberia ser un array `[button, button2, button3]`y el div es el que vamos a renderizar `root.render(div);`. Y ahora si tendriamos nuestro tres botones.
 
 ```js
 import React from "https://esm.sh/react@18.2.0";
@@ -415,7 +415,10 @@ root.render(div);
 
 ## 10.Fragment 34:30
 
-Alguien nos dira que ¡no quiero un div!. Para que no tengas que renderizar un div, react tiene un componente suyo propio, una forma de envolver cosas con cosa vacias para no renderizar nada y para eso puedes crear un `React.Fragment`.
+Si inspeccionamos el código con las herramientas de desarrollo del navegador, veremos que React ha renderizado  ha renderizado un elemento div. Alguien nos dira que ¡no quiero un div!. Para que no tengas que renderizar un div, react tiene un componente suyo propio, una forma de envolver cosas con cosa vacias para no renderizar nada y para eso puedes crear un `React.Fragment`. Que veremos mas adelante otra forma de declararlo mucho mas facil y más lógico. Si nuevamente inspeccionamos veremos que renderiza los tres botones sin la necesidad de un div. 
+
+¿Por qué no usar un div?
+Usar un div adicional añade un nivel extra al HTML. Debemos evitar esto para mantener un HTML lo más simple y semántico posible.
 
 ```js
 const div = React.crateElement("React.Fragment", null, [
@@ -424,6 +427,9 @@ const div = React.crateElement("React.Fragment", null, [
   button3,
 ]);
 ```
+
+Otra cosa importante es que nuestro codigo todavia no llega a ser declarativo. 
+Pero para ello lo que tiene que utilizar con React es 'JSX'.
 
 [Indice](#curso-de-react-de-midudev)
 
