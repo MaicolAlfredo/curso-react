@@ -14,7 +14,7 @@
 7. [Cómo usar React sin dependencias](#7cómo-usar-react-sin-dependencias-2638)
 8. [Crea tu primer elemento](#8crea-tu-primer-elemento-3000)
 9. [Elemento con atributos](#9elemento-con-atributos-3145)
-10. [Frgment](#10fragment-3430)
+10. [Fragment](#10fragment-3430)
 11. [JSX desde cero](#11jsx-desde-cero-3600)
 
 ### React.js
@@ -421,7 +421,7 @@ Si inspeccionamos el código con las herramientas de desarrollo del navegador, v
 Usar un div adicional añade un nivel extra al HTML. Debemos evitar esto para mantener un HTML lo más simple y semántico posible.
 
 ```js
-const div = React.crateElement("React.Fragment", null, [
+const div = React.crateElement(React.Fragment, null, [
   button,
   button2,
   button3,
@@ -435,21 +435,43 @@ Pero para ello lo que tiene que utilizar con React es 'JSX'.
 
 ## 11.JSX desde cero 36:00
 
-JSX es una extensión de la sintaxis de JavaScript que te permite escribir lo que parece HTML directamente dentro de tu código JavaScript en React. Básicamente, te facilita la vida al permitirte describir cómo quieres que se vea la interfaz de usuario usando una sintaxis familiar.
+¿Qué es esto de JSX? ¿cómo funciona? ¿Tiene que ver con React? Como hemos visto podemos utilizar React sin JSX pero JSX es una extensión de EMAScript que esta basada en XML y lo que nos va a permitir es crear de una forma mucha mas declarativa nuestro elementos.
 
-Ejemplo:
-
-En lugar de escribir esto en JavaScript:
+JSX es una extensión `.jsx` de la sintaxis de JavaScript que te permite escribir lo que parece HTML directamente dentro de tu código JavaScript en React. Básicamente, te facilita la vida al permitirte describir cómo quieres que se vea la interfaz de usuario usando una sintaxis familiar. Y asi no tener que escribir esto:
 
 ```js
 React.createElement("div", null, "Hola, mundo!");
 ```
 
-Puedes escribir esto en JSX:
+de una forma tan complicada por que si empezamos a escribir asi no lo vamos a entender, será dificil crear interfaces muy grandes y la gente se volvería un poco loca.
+JSX nos permite describir la interfaz que queremos crear en lugar de crear el button, button2 etc esta inferfaz:
 
-```jsx
-<div>Hola, mundo!</div>
+`Codigo 1`
+
+```js
+const button = React.createElement("button", { "data-id": 123 }, "Button 1");
+const button2 = React.createElement("button", { "data-id": 456 }, "Button 2");
+const button3 = React.createElement("button", { "data-id": 789 }, "Button 3");
 ```
+
+la podriamos recrear exactamente igual simplemente escribiendo en JSX:
+
+`Codigo 2`
+
+```js
+//JSX
+<React.Fragment>
+  <button data-id="123">Button 1 </button>
+  <button data-id="456">Button 2 </button>
+  <button data-id="789">Button 3 </button>
+</React.Fragment>
+```
+
+¿Qué es lo que pasa con esto? que tanto el codigo 1 como el codigo 2 son exactamente lo mismo y es por eso que es importante que entiendas el codigo 1 por que si lo entiendes cuando veas el codigo 2 entenderas todo lo que esta pasando en el codigo 2.
+
+¿Y cómo funciona esto? ¿Quién se encarga de hacer esta magia? Muchas veces los tutorial la gente lo que hace es lanzarse directamente a aprenderlo con JSX, con empaquetadores de aplicaciones y no entiende la magia que esta pasando por detras.
+
+¿Quié es el que se encarga de hacer este tipo de transformaciones? se encarga algunas aplicaciones o algunas herramientas como SWC o BABEL. BABEL que es muy famoso es un transpilador de código donde le escribe javascript y lo que hace es transformarlo lo mismo como el caso de SWC. Esta son 2 herramientas que son las que utiliza por debajo alguno empaquetadores de aplicaciones como WebPack o como utiliza Next.js, Vite etc.
 
 [Indice](#curso-de-react-de-midudev)
 
