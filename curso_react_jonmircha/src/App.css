@@ -1,3 +1,28 @@
 .clase__titulo {
   color: #00ffff;
 }
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+  gap: 20px; /* Espacio entre los elementos */
+  padding: 20px; /* Espacio interno */
+}
+
+@media (max-width: 768px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .pokemon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.clase__titulo_principal {
+  text-align: center;
+  color: #00ffff;
+  text-decoration: underline;
+}

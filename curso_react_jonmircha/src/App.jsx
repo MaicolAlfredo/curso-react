@@ -15,6 +15,10 @@ import {
 } from "./components/EventosClase";
 import Padre from "./components/ComunicacionComponenteClase";
 import CicloVidaClase from "./components/CicloVidaClase";
+import AjaxApisClase from "./components/AjaxApisClase";
+import ContadorHooksFuncion from "./components/ContadorHooksFuncion";
+import ScrollHooksFuncion from "./components/ScrollHooksFuncion";
+import RelojHookFuncion from "./components/RelojHookFuncion";
 
 function App() {
   return (
@@ -81,6 +85,24 @@ function App() {
           Clase 13: Ciclo de Vida de los Componentes
         </h2>
         <CicloVidaClase />
+      </div>
+      <hr />
+      <div>
+        <h2 className="clase__titulo">Clase 14: Peticiones Asincronas</h2>
+        <AjaxApisClase />
+      </div>
+      <hr />
+      <div>
+        <h2 className="clase__titulo_principal">Functional Component</h2>
+        <h2 className="clase__titulo">Clase 16: Hook useState</h2>
+        <ContadorHooksFuncion />
+      </div>
+      <hr />
+      <div>
+        <h2 className="clase__titulo">Clase 17: Hook useEffect parte 1</h2>
+        <ScrollHooksFuncion />
+        <h2 className="clase__titulo">Clase 18: Hook useEffect parte 2</h2>
+        <RelojHookFuncion />
       </div>
     </>
   );
