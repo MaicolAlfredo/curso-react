@@ -19,6 +19,10 @@ import AjaxApisClase from "./components/AjaxApisClase";
 import ContadorHooksFuncion from "./components/ContadorHooksFuncion";
 import ScrollHooksFuncion from "./components/ScrollHooksFuncion";
 import RelojHookFuncion from "./components/RelojHookFuncion";
+import AjaxHookFuncion from "./components/AjaxHookFuncion";
+import HookPersonalizados from "./components/HookPersonalizados";
+import ReferenciaFuncion from "./components/ReferenciaFuncion";
+import FormularioFuncion from "./components/FormularioFuncion";
 
 function App() {
   return (
@@ -103,6 +107,29 @@ function App() {
         <ScrollHooksFuncion />
         <h2 className="clase__titulo">Clase 18: Hook useEffect parte 2</h2>
         <RelojHookFuncion />
+      </div>
+      <hr />;{" "}
+      <div>
+        <h2 className="clase__titulo">
+          Clase 19: Peticiones Asíncronas con Hooks (AJAX y API's)
+        </h2>
+        <AjaxHookFuncion />
+      </div>
+      <hr />
+      <div>
+        <h2 className="clase__titulo">Clase 20: Custom Hooks</h2>
+        <HookPersonalizados />
+        {/* Hacemos uso de un arhivo en la carpeta hooks llamada useFetch */}
+      </div>
+      <hr />
+      <div>
+        <h2 className="clase__titulo">Clase 21: Referenica</h2>
+        <ReferenciaFuncion />
+      </div>
+      <hr />
+      <div>
+        <h2 className="clase__titulo">Clase 22: Formulario</h2>
+        <FormularioFuncion />
       </div>
     </>
   );
